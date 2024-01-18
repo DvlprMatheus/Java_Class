@@ -22,6 +22,8 @@ Existem muitas outras maneiras de realizar essas atividades, então separei aqui
 6) Crie uma classe chamada "Cachorro" com os atributos nome, raça e idade. Implemente um método para latir.
 7) Crie uma classe chamada "Livro" com os atributos título, autor e ano de publicação. Implemente um método para exibir as informações do livro.
 8) Crie uma classe chamada "Triangulo" com os atributos lado1, lado2 e lado3. Implemente um método para verificar se os lados formam um triângulo válido.
+9) Crie uma classe chamada "Funcionario" com os atributos nome, cargo e salário. Implemente um método para aumentar o salário do funcionário em uma determinada porcentagem.
+10) Crie uma classe chamada "Calendario" com os atributos dia, mês e ano. Implemente um método para verificar se uma data é válida
 
 **Alguns exercícios estão com algumas funcionalidades a mais do que foi requisitado, sinta-se livre para explorar.**
 
