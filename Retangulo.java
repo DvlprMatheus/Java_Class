@@ -1,41 +1,50 @@
-// Import da classe Scanner que é responsável pelo input.
+// Importação da classe Scanner que é responsável pelo input.
 import java.util.Scanner;
 
-// Criação da classe
+// Criação da classe.
 public class Retangulo {
 
-    // Atributo comprimento.
-    int comprimento = 0;
+    // Atributos.
+    private int comprimento;
+    private int altura;
 
-    // Atributo altura.
-    int altura = 0;
-
-    // Método criado para realizar o cálculo da área, utilizando as informação digitadas pelo usuário.
-    public void meuCalculo(){
-        int area = comprimento * altura;
-        System.out.println("O resultado da área é: " + area);
+    // Métodos Getter e Setter para manipular os atributos.
+    public int getComprimento() {
+        return comprimento;
     }
 
-    // Função principal que cria o objeto, chama o método e coleta as informações do usuário.
-    public static void main(String[] args){
-        // Objeto
-        Retangulo resultFinal = new Retangulo();
+    public void setComprimento(int comprimento) {
+        this.comprimento = comprimento;
+    }
 
-        // Input do comprimento.
-        Scanner compObj = new Scanner(System.in);
-        System.out.print("Digite o comprimento do retângulo: ");
+    public int getAltura() {
+        return altura;
+    }
 
-        // Alocação da informação dentro do atributo comprimento.
-        resultFinal.comprimento = compObj.nextInt();
+    public void setAltura(int altura) {
+        this.altura = altura;
+    }
 
-        // Input da altura.
-        Scanner largObj = new Scanner(System.in);
-        System.out.print("Digite a largura do retângulo: ");
+    // Função principal que recolhe a resposta do usuário, calcula a área e retorna ao usuário.
+    public static void main(String[] args) {
+        Retangulo retangulo = new Retangulo();
 
-        // Alocação da informação dentro do atributo altura.
-        resultFinal.altura = largObj.nextInt();
+        Scanner scan = new Scanner(System.in);
 
-        // Chamada do método.
-        resultFinal.meuCalculo();
+        // Tenta esse bloco de código previnindo erros.
+        try{
+            System.out.print("Digite o comprimento: ");
+            retangulo.setComprimento(scan.nextInt());
+
+            System.out.print("Digite a altura: ");
+            retangulo.setAltura(scan.nextInt());
+
+            int areaRetangulo = retangulo.getComprimento() * retangulo.getAltura();
+            System.out.println("A área do retângulo é: " + areaRetangulo);
+
+            // Cria uma exceção que trata o erro.
+        } catch (Exception e){
+            System.out.println("Valor inválido!");
+        }
     }
 }

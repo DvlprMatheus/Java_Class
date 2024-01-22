@@ -1,23 +1,44 @@
-// Criação da classe
+// Criação da classe.
 public class Carro {
 
-    // Atributo modelo.
-    String modelo = "Divo";
+    // Atributos.
+    private String modelo;
+    private String marca;
+    private int ano;
 
-    // Atributo marca.
-    String marca = "Bugatti";
-
-    // Atributo ano.
-    int ano = 2020;
-
-    // Método criado para especificar todos os atributos do carro.
-    public void testDrive(){
-        System.out.println("Seja bem vindo ao Test Drive!\nMarca: " + marca + "\nModelo: " + modelo + "\nAno: " + ano + "\nAproveite sua jornada!");
+    // Métodos Getter e Setter para manipular os atributos.
+    public String getModelo() {
+        return modelo;
     }
 
-    // Função principal que cria o objeto que chama o método.
-    public static void main(String[] args){
-        Carro meuCarro = new Carro();
-        meuCarro.testDrive();
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public int getAno() {
+        return ano;
+    }
+
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
+
+    // Função principal que altera os atributos e exibe ao usuário.
+    public static void main(String[] args) {
+        Carro car = new Carro();
+
+        car.setModelo("Divo");
+        car.setMarca("Bugatti");
+        car.setAno(2020);
+
+        System.out.println("---------- Informações do Carro ----------\nModelo: " + car.getModelo() + "\nMarca: " + car.getMarca() + "\nAno: " + car.getAno() +"\n------------------------------------------");
     }
 }
