@@ -36,10 +36,8 @@ public class ContaBancaria {
         if(confirm.equals(conta.getNumeroConta())){
             // Tenta esse bloco de código previnindo erros.
             try{
-                boolean i = true;
-
                 // Laço de repetição que gera a interface ao usuário.
-                while(i){
+                while(true){
                     System.out.print("\n1) Saldo\n2) Depóstio\n3) Saque\n4) Sair\nO que deseja fazer: ");
                     int escolha = scan.nextInt();
 
@@ -59,7 +57,7 @@ public class ContaBancaria {
                             break;
                         case 4:
                             System.out.println("\nAté mais!");
-                            i = false;
+                            System.exit(0);
                             break;
                     }
                 } // Cria uma exceção que trata o erro.
