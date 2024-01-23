@@ -6,32 +6,24 @@ public class Livro {
     private String autor;
     private int anoPublicado;
 
-    // Métodos Getter e Setter para manipular os atributos.
-    public String getTitulo() {
-        return titulo;
-    }
-
+    // Métodos Setter para manipular os atributos.
     public void setTitulo(String titulo) {
         this.titulo = titulo;
-    }
-
-    public String getAutor() {
-        return autor;
     }
 
     public void setAutor(String autor) {
         this.autor = autor;
     }
 
-    public int getAnoPublicado() {
-        return anoPublicado;
-    }
-
     public void setAnoPublicado(int anoPublicado) {
         this.anoPublicado = anoPublicado;
     }
 
-    // Função principal que setta os atributos e exibe a descrição do livro.
+    public void setDescLivro(){
+        System.out.printf("---------- Descrição do Livro ----------\nTitulo: %s\nAutor: %s\nAno Publicado: %d\n----------------------------------------", titulo, autor, anoPublicado);
+    }
+
+    // Função principal que setta os atributos e chama o método que exibe a descrição ao usuário.
     public static void main(String[] args){
         Livro book = new Livro();
 
@@ -39,6 +31,6 @@ public class Livro {
         book.setAutor("Alex Michaeledes");
         book.setAnoPublicado(2019);
 
-        System.out.printf("---------- Descrição do Livro ----------\nTitulo: %s\nAutor: %s\nAno Publicado: %d\n----------------------------------------", book.getTitulo(),book.getAutor(), book.getAnoPublicado());
+        book.setDescLivro();
     }
 }

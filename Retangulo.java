@@ -25,13 +25,17 @@ public class Retangulo {
         this.altura = altura;
     }
 
-    // Função principal que recolhe a resposta do usuário, calcula a área e retorna ao usuário.
+    public void setArea(int comprimento, int altura){
+        int areaRetangulo = comprimento * altura;
+        System.out.println("A área do retângulo é: " + areaRetangulo);
+    }
+
+    // Função principal que recolhe a resposta do usuário, e retorna a área.
     public static void main(String[] args) {
         Retangulo retangulo = new Retangulo();
 
         Scanner scan = new Scanner(System.in);
 
-        // Tenta esse bloco de código previnindo erros.
         try{
             System.out.print("Digite o comprimento: ");
             retangulo.setComprimento(scan.nextInt());
@@ -39,10 +43,7 @@ public class Retangulo {
             System.out.print("Digite a altura: ");
             retangulo.setAltura(scan.nextInt());
 
-            int areaRetangulo = retangulo.getComprimento() * retangulo.getAltura();
-            System.out.println("A área do retângulo é: " + areaRetangulo);
-
-            // Cria uma exceção que trata o erro.
+            retangulo.setArea(retangulo.getComprimento(), retangulo.getAltura());
         } catch (Exception e){
             System.out.println("Valor inválido!");
         }

@@ -9,29 +9,25 @@ public class Pessoa {
     private int idade;
     private double altura;
 
-    // Métodos Getter e Setter para manipular os atributos.
-    public String getNome() {
-        return nome;
-    }
-
+    // Métodos Setter para manipular os atributos.
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public int getIdade() {
-        return idade;
     }
 
     public void setIdade(int idade) {
         this.idade = idade;
     }
 
-    public double getAltura() {
-        return altura;
-    }
-
     public void setAltura(double altura) {
         this.altura = altura;
+    }
+
+    public void setValIdade(){
+        if(idade > 18) {
+            System.out.printf("Seu nome é %s, você tem %.2f de altura.\nE você é maior de idade!", nome, altura);
+        } else {
+            System.out.printf("Seu nome é %s, você tem %.2f de altura.\nE você é maior de idade!", nome, altura);
+        }
     }
 
     // Função principal que setta os atributos e valida a idade digitada pelo usuário.
@@ -50,11 +46,8 @@ public class Pessoa {
             System.out.print("Digite sua altura: ");
             people.setAltura(scan.nextDouble());
 
-            if(people.getIdade() > 18) {
-                System.out.printf("Seu nome é %s, você tem %.2f\nE você é maior de idade!", people.getNome(), people.getAltura());
-            } else {
-                System.out.printf("Seu nome é %s, você tem %.2f\\nE você é maior de idade!", people.getNome(), people.getAltura());
-            }
+            people.setValIdade();
+
         } catch (Exception e) {
             System.out.println("Valor Inválido");
         }
