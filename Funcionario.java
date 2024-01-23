@@ -1,39 +1,62 @@
-// Import da classe Scanner que é responsável pelo input.
+// Importação da classe Scanner que é responsável pelo input.
 import java.util.Scanner;
 
 // Criação da classe.
 public class Funcionario {
 
-    // Atributo nome.
-    String nome = "João Pedro";
+    // Atributos.
+    private String nome;
+    private String cargo;
+    private double salario;
 
-    // Atributo cargo.
-    String cargo = "Desenvolvedor Junior";
-
-    // Atributo salário.
-    double salario = 1500.00;
-
-    // Método criado para realizar o aumento no salário, informando toda descrição do funcionário.
-    static void aumentSalario(){
-        // Objeto para acessar atributos.
-        Funcionario funcObj = new Funcionario();
-
-        // Input da porcentagem desejada.
-        Scanner aumentObj = new Scanner(System.in);
-        System.out.print("Digite a porcentagem de aumento: ");
-
-        // Coleta de dados.
-        double nmr_porcentagem = aumentObj.nextInt();
-
-        // Conta da porcentagem e adição sobre o salário antigo, já resultando no salário atual com aumento.
-        double salario_final = funcObj.salario + ((nmr_porcentagem/100) * funcObj.salario);
-
-        // Exibição das informações.
-        System.out.printf("---------- Info Funcionário ----------\nNome: %s\nCargo: %s\nSalário antigo: %.2f\nSalário atual: %.2f\n--------------------------------------", funcObj.nome, funcObj.cargo, funcObj.salario, salario_final);
+    // Métodos Getter e Setter para manipular os atributos.
+    public String getNome() {
+        return nome;
     }
 
-    // Função principal que chama o método.
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
+
+    public double getSalario() {
+        return salario;
+    }
+
+    public void setSalario(double salario) {
+        this.salario = salario;
+    }
+
+    public void setAumento(double aumentoSalario) {
+        salario = salario + ((aumentoSalario/100) * salario);
+    }
+
+    // Função principal que descreve o funcionário e utiliza o método de aumento.
     public static void main(String[] args){
-        aumentSalario();
+        Funcionario func = new Funcionario();
+
+        Scanner scan = new Scanner(System.in);
+
+        func.setNome("Gabriel Goularte");
+        func.setCargo("Youtuber");
+        func.setSalario(3670.00);
+
+        try{
+            System.out.printf("---------- Descrição do Funcionário ----------\nNome: %s\nCargo: %s\nSalário: %.2f\n----------------------------------------------\n", func.getNome(), func.getCargo(), func.getSalario());
+
+            System.out.print("Qual é a porcentagem do aumento: ");
+            func.setAumento(scan.nextInt());
+
+            System.out.println("O salário com aumento: R$" + func.getSalario());
+        } catch (Exception e){
+            System.out.println("Valor inválido!");
+        }
     }
 }

@@ -1,29 +1,44 @@
 // Criação da classe.
 public class Livro {
 
-    // Atributo título.
-    String titulo = "A Paciente Silenciosa";
+    // Atributos.
+    private String titulo;
+    private String autor;
+    private int anoPublicado;
 
-    // Atributo autor.
-    String autor = "Alex Michaelides";
-
-    // Atributo ano publicado.
-    int ano_publicado = 2019;
-
-    // Método para exibir as informações do livro ao usuário.
-    public void sobreLivro(){
-        // Objeto criado para pegar os atributos.
-        Livro livObj = new Livro();
-
-        // Exibição dos dados
-        System.out.printf("---------- Sobre o Livro ----------\nTítulo: %s\nAutor: %s\nAno Publicado: %d\n-----------------------------------\n", livObj.titulo, livObj.autor, livObj.ano_publicado);
+    // Métodos Getter e Setter para manipular os atributos.
+    public String getTitulo() {
+        return titulo;
     }
 
-    // Função principal que inicia o método.
-    public static void main(String[] args){
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
 
-        // Para acessar um método public, necessita de criar um objeto.
-        Livro livObj = new Livro();
-        livObj.sobreLivro();
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public int getAnoPublicado() {
+        return anoPublicado;
+    }
+
+    public void setAnoPublicado(int anoPublicado) {
+        this.anoPublicado = anoPublicado;
+    }
+
+    // Função principal que setta os atributos e exibe a descrição do livro.
+    public static void main(String[] args){
+        Livro book = new Livro();
+
+        book.setTitulo("A Paciente Silenciosa");
+        book.setAutor("Alex Michaeledes");
+        book.setAnoPublicado(2019);
+
+        System.out.printf("---------- Descrição do Livro ----------\nTitulo: %s\nAutor: %s\nAno Publicado: %d\n----------------------------------------", book.getTitulo(),book.getAutor(), book.getAnoPublicado());
     }
 }

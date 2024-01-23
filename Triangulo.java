@@ -4,52 +4,58 @@ import java.util.Scanner;
 // Criação da classe.
 public class Triangulo {
 
-    // Atributo primeiro lado.
-    int lado1 = 0;
+    // Atributos.
+    private int lado1;
+    private int lado2;
+    private int lado3;
+    private boolean valTriangulo;
 
-    // Atributo segundo lado.
-    int lado2 = 0;
-
-    // Atributo terceiro lado.
-    int lado3 = 0;
-
-    // Objeto Global.
-    static Triangulo triangObj = new Triangulo();
-
-    // Método que realiza a verificação do triângulo.
-    static void valObj(){
-        if(triangObj.lado1 == triangObj.lado2 && triangObj.lado1 == triangObj.lado3){
-            System.out.println("O triângulo é válido!");
-        } else {
-            System.out.println("O triângulo não é valido!");
-        }
+    // Métodos Getter e Setter para manipular os atributos.
+    public void setLado1(int lado1) {
+        this.lado1 = lado1;
     }
 
-    // Função principal que coleta os dados e inicia o método.
+    public void setLado2(int lado2) {
+        this.lado2 = lado2;
+    }
+
+    public void setLado3(int lado3) {
+        this.lado3 = lado3;
+    }
+
+    public boolean getValTriangulo() {
+        return valTriangulo;
+    }
+
+    public void setValTriangulo() {
+        valTriangulo = lado1 == lado2 && lado1 == lado3;
+    }
+
+    // Função principal que setta os atributos e verifica se o triângulo é válido.
     public static void main(String[] args){
+        Triangulo triangle = new Triangulo();
 
-        // Input do primeiro lado.
-        Scanner lado1Obj = new Scanner(System.in);
-        System.out.print("Digite o tamanho do primeiro lado do triângulo: ");
+        Scanner scan = new Scanner(System.in);
 
-        // Coleta de Dados.
-        triangObj.lado1 = lado1Obj.nextInt();
+        try{
+            System.out.print("Digite o valor do primeiro lado: ");
+            triangle.setLado1(scan.nextInt());
 
-        // Input do segundo lado.
-        Scanner lado2Obj = new Scanner(System.in);
-        System.out.print("Digite o tamanho do segundo lado do triângulo: ");
+            System.out.print("Digite o valor do segundo lado: ");
+            triangle.setLado2(scan.nextInt());
 
-        // Coleta de Dados.
-        triangObj.lado2 = lado2Obj.nextInt();
+            System.out.print("Digite o valor do terceiro lado: ");
+            triangle.setLado3(scan.nextInt());
 
-        // Input do terceiro lado.
-        Scanner lado3Obj = new Scanner(System.in);
-        System.out.print("Digite o tamanho do terceiro lado do triângulo: ");
+            triangle.setValTriangulo();
 
-        // Coleta de Dados.
-        triangObj.lado3 = lado3Obj.nextInt();
-
-        // Chamada do método.
-        valObj();
+            if(triangle.getValTriangulo()){
+                System.out.println("Este triangulo é válido!");
+            } else {
+                System.out.println("Este triangulo não é válido!");
+            }
+        } catch (Exception e){
+            System.out.println("Valor inválido!");
+        }
     }
 }

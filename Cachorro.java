@@ -1,43 +1,52 @@
 // Import da classe Scanner que é responsável pelo input.
-import java.util.Scanner;
 
 // Criação da classe.
 public class Cachorro {
 
-    // Atributo nome.
-    String nome = "Andory";
+    // Atributos.
+    private String nome;
+    private String raca;
+    private int idade;
 
-    // Atributo raça.
-    String raca = "Yorkshire";
 
-    // Atributo idade.
-    int idade = 2;
-
-    // Método para especificar os atributos e fazer ele latir.
-    public void acaoLatir(){
-        // Objeto criado para pegar os atributos.
-        Cachorro dogObj = new Cachorro();
-
-        // Input de resposta do usuário.
-        Scanner confirmObj = new Scanner(System.in);
-        System.out.printf("Conheça %s, ele é um %s e tem %d ano(s).\nDeseja acaricia-lo? ", dogObj.nome, dogObj.raca, dogObj.idade);
-
-        // Coleta de dados
-        String confirm = confirmObj.nextLine();
-
-        // Condição que verifica a resposta do usuário.
-        if(confirm.equals("s") || confirm.equals("S") || confirm.equals("Sim") || confirm.equals("sim")){
-            System.out.println("Woof! woof! Ele late de felicidade com seu carinho!");
-        } else {
-            System.out.println("Woof! Ele late e gosta da sua companhia mesmo assim.");
-        }
+    // Métodos Getter e Setter para manipular os atributos.
+    public String getNome() {
+        return nome;
     }
 
-    // Função principal que inicia o método
-    public static void main(String[] args){
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-        // Para acessar um método public, necessita de criar um objeto.
-        Cachorro dogObj = new Cachorro();
-        dogObj.acaoLatir();
+    public String getRaca() {
+        return raca;
+    }
+
+    public void setRaca(String raca) {
+        this.raca = raca;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+
+    public String getLatir() {
+        return "Woof! Woof!";
+    }
+
+    // Função principal que setta os atributos e utiliza o método de latir.
+    public static void main(String[] args){
+        Cachorro dog = new Cachorro();
+
+        dog.setNome("Andory");
+        dog.setRaca("Yorkshire");
+        dog.setIdade(2);
+
+        System.out.printf("Este é %s, ele é um %s e tem %d anos!\n", dog.getNome(), dog.getRaca(), dog.getIdade());
+        System.out.println(dog.getLatir());
     }
 }
