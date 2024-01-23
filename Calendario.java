@@ -4,102 +4,90 @@ import java.util.Scanner;
 // Criação de classe.
 public class Calendario {
 
-    // Atributo dia.
-    int dia = 31;
+    // Atributos.
+    private int dia;
+    private int mes;
+    private int ano;
 
-    // Atributo mês.
-    int mes = 12;
+    // Métodos Getter e Setter para manipular os atributos.
+    public int getDia() {
+        return dia;
+    }
 
-    // Atributo ano máximo.
-    int ano_max = 2100;
+    public void setDia(int dia) {
+        this.dia = dia;
+    }
 
-    // Atributo ano mínimo.
-    int ano_min = 1500;
+    public int getMes() {
+        return mes;
+    }
 
-    // Método de validação da data digitada pelo usuário.
-    static void methValidacao(){
-        // Objeto para acessar os atributos.
-        Calendario calenObj = new Calendario();
+    public void setMes(int mes) {
+        this.mes = mes;
+    }
 
-        // Input do ano.
-        Scanner diaObj = new Scanner(System.in);
-        System.out.print("Digite o dia (Apenas o Número): ");
+    public int getAno() {
+        return ano;
+    }
 
-        // Coleta de dados.
-        int conf_dia = diaObj.nextInt();
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
 
-        // Input do mês.
-        Scanner mesObj = new Scanner(System.in);
-        System.out.print("Digite o mês (Apenas o Número): ");
-
-        // Coleta de dados.
-        int conf_mes = mesObj.nextInt();
-
-        // Input do ano.
-        Scanner anoObj = new Scanner(System.in);
-        System.out.print("Digite o ano (Apenas o Número): ");
-
-        // Coleta de dados.
-        int conf_ano = anoObj.nextInt();
-
-        // Condição da validação do ano.
-        if(conf_ano > calenObj.ano_max || conf_ano < calenObj.ano_min){
-
-            // Exibição do erro.
-            System.out.println("Data inválida!\nAno máximo: " + calenObj.ano_max + "\nAno mínimo: " + calenObj.ano_min);
+    public void setValData(int dia, int mes, int ano){
+        if(ano < 1900 || ano > 2100) {
+            System.out.println("Ano inválido!");
         } else {
-
-            // Condição da validação do mês.
-            if(conf_mes > calenObj.mes){
-
-                // Exibição do erro.
-                System.out.println("Data inválida!\nMês máximo: " + calenObj.mes);
+            if(mes > 12) {
+                System.out.println("Mês inválido!");
             } else {
-
-                // Switch responsável para validar os dias, com a condição de alteração para ter 31, 30 ou 28 dias de acordo com o mês.
-                switch (conf_mes){
-
-                    // Meses 1, 3, 5, 7, 8, 10 e 12.
+                switch (mes){
                     case 1, 3, 5, 7, 8, 10, 12:
-                        if(conf_dia > calenObj.dia){
-                            System.out.println("Data inválida!\nDia máximo: " + calenObj.dia);
+                        if(dia > 31){
+                            System.out.println("Dia inválido!");
                         } else {
-                            System.out.printf("A data: %d / %d / %d é válida!", conf_dia, conf_mes, conf_ano);
+                            System.out.printf("A data %d/%d/%d é válida!", dia, mes, ano);
                         }
                         break;
-
-                    // Mês 2.
                     case 2:
-                        calenObj.dia = 28;
-
-                        if(conf_dia > calenObj.dia){
-                            System.out.println("Data inválida!\nDia máximo: " + calenObj.dia);
+                        if(dia > 28){
+                            System.out.println("Dia inválido!");
                         } else {
-                            System.out.printf("A data: %d / %d / %d é válida!", conf_dia, conf_mes, conf_ano);
+                            System.out.printf("A data %d/%d/%d é válida!", dia, mes, ano);
                         }
                         break;
-
-                    // Meses 4, 6, 9, 11.
                     case 4, 6, 9, 11:
-                        calenObj.dia = 30;
-
-                        if(conf_dia > calenObj.dia){
-                            System.out.println("Data inválida!\nDia máximo: " + calenObj.dia);
+                        if(dia > 30){
+                            System.out.println("Dia inválido!");
                         } else {
-                            System.out.printf("A data: %d / %d / %d é válida!", conf_dia, conf_mes, conf_ano);
+                            System.out.printf("A data %d/%d/%d é válida!", dia, mes, ano);
                         }
                         break;
-                    default:
-
-                        // Prevenção de erro.
-                        System.out.print("Erro!");
                 }
             }
         }
     }
 
-    // Função principal que chama o método.
+    // Função principal que setta os atributos e chama o método de validação da data.
     public static void main(String[] args){
-        methValidacao();
+        Calendario calendar = new Calendario();
+
+        Scanner scan = new Scanner(System.in);
+
+        try{
+            System.out.print("Digite um dia (Apenas número): ");
+            calendar.setDia(scan.nextInt());
+
+            System.out.print("Digite um mês (Apenas número): ");
+            calendar.setMes(scan.nextInt());
+
+            System.out.print("Digite um ano (Apenas número): ");
+            calendar.setAno(scan.nextInt());
+
+            calendar.setValData(calendar.getDia(), calendar.getMes(), calendar.getAno());
+
+        } catch (Exception e){
+            System.out.println("Valor inválido!");
+        }
     }
 }
