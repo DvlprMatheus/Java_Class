@@ -4,13 +4,14 @@ import java.util.Scanner;
 // Criação da classe.
 public class ContaBancaria {
 
-    // Atributos.
+    // Atributo.
     private double saldo;
+    
+    // Métodos Getter e Setter para manipular os atributos.
     public String getNumeroConta() {
         return "98765-4";
     }
-    
-    // Métodos Getter e Setter para manipular os atributos.
+
     public double getSaldo() {
         return saldo;
     }

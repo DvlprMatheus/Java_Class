@@ -31,7 +31,7 @@ public class Aluno {
 
         System.out.printf("---------- Médias Escolares ----------\n%s = %.1f", aluno.getNome(), aluno.getMedia());
 
-        aluno.setNome("Monyke Angel");
+        aluno.setNome("João Pedro");
         aluno.setMedia(9, 7, 5.7);
 
         System.out.printf("\n%s = %.1f", aluno.getNome(), aluno.getMedia());

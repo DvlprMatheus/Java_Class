@@ -1,5 +1,3 @@
-// Import da classe Scanner que é responsável pelo input.
-
 // Criação da classe.
 public class Cachorro {
 
